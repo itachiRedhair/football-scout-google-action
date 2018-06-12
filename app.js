@@ -12,8 +12,10 @@ dialogFlowApp.intent("FindFootballer", conv => {
   conv.ask("You are lionel messi");
 });
 
+const PORT = process.env.PORT;
+
 express()
   .use(bodyParser.json(), dialogFlowApp)
-  .listen(3000, () => {
-    console.log("Listening on port 3000");
+  .listen(PORT || 5000, () => {
+    console.log(`Listening on port ${PORT}`);
   });
